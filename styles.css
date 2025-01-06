@@ -1,6 +1,6 @@
 /* Set the background color of the entire app */
 body {
-    background-color: #a8d5ba;; /* Light blue background */
+    background-color: #a8d5ba; /* Light blue background */
     font-family: 'Poppins', sans-serif; /* Elegant font style */
     margin: 0;
     padding: 0;
@@ -23,6 +23,7 @@ body {
     border-radius: 5px !important;
     margin-bottom: 20px;
     padding: 10px;
+    width: 100%;
 }
 
 /* Style the container for recommendations */
