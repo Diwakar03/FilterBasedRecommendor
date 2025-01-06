@@ -16,7 +16,7 @@ category_files = {
         "matrix": "Fdf1_bow_matrix.pkl",
         "dataframe": "Fdf1.pkl",
     },
-    "Hindi TV Shows": {
+    "Hindi Show": {
         "vectorizer": "Fdf2_bow_vectorizer.pkl",
         "matrix": "Fdf2_bow_matrix.pkl",
         "dataframe": "Fdf2.pkl",
@@ -38,8 +38,8 @@ category_files = {
     },
 }
 
-# Streamlit App Title
-st.markdown('<h1 style="color:white; text-align:left; font-size:36px; margin:20px 20px; font-weight:bold;">Filter-Based Recommendation System</h1>', unsafe_allow_html=True)
+# Streamlit App Title with Inline CSS (Grey color)
+st.markdown('<h1 style="color:grey; text-align:left; font-size:36px; margin:20px 20px; font-weight:bold;">Filter-Based Recommendation System</h1>', unsafe_allow_html=True)
 
 # Category Selection with Inline CSS (Grey color)
 category = st.selectbox(
@@ -70,8 +70,8 @@ if category:
         top_indices = similarity_scores.argsort()[-7:][::-1]
         recommendations = dataframe.iloc[top_indices]
 
-        # Display Recommendations
-        st.markdown(f"<h3 style='color:white;'>Top 7 recommendations for '{search_query}':</h3>", unsafe_allow_html=True)
+        # Display Recommendations with Inline CSS (Grey color)
+        st.markdown(f"<h3 style='color:grey;'>Top 7 recommendations for '{search_query}':</h3>", unsafe_allow_html=True)
         for i, row in recommendations.iterrows():
             st.markdown(
                 f"""
