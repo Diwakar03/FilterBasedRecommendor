@@ -4,11 +4,6 @@ import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
 
-# Load CSS from an external file
-def load_css(css_file):
-    with open(css_file, 'r') as file:
-        st.markdown(f"<style>{file.read()}</style>", unsafe_allow_html=True)
-
 # Load the saved files
 def load_pickle(file_name):
     with open(file_name, 'rb') as file:
@@ -43,16 +38,21 @@ category_files = {
     },
 }
 
-# Load CSS file
-load_css("styles.css")
-
 # Streamlit App Title
-st.markdown('<h1 class="main-title">Filter-Based Recommendation System</h1>', unsafe_allow_html=True)
+st.markdown('<h1 style="color:white; text-align:left; font-size:36px; margin:20px 20px; font-weight:bold;">Filter-Based Recommendation System</h1>', unsafe_allow_html=True)
 
-# Category Selection
+# Category Selection with Inline CSS
 category = st.selectbox(
-    "Select a category", options=list(category_files.keys())
+    "Select a category", options=list(category_files.keys()), 
+    index=0, key="category", 
+    help="Select a category", 
+    label_visibility="visible"
 )
+st.markdown('<style>div.stSelectbox > label { color: black !important; font-size: 16px !important; font-weight: bold !important; }</style>', unsafe_allow_html=True)
+
+# Search bar for user input with Inline CSS
+search_query = st.text_input("Search for a name or description")
+st.markdown('<style>div.stTextInput > label { color: black !important; font-size: 16px !important; font-weight: bold !important; }</style>', unsafe_allow_html=True)
 
 if category:
     # Load the corresponding files for the selected category
@@ -60,9 +60,6 @@ if category:
     vectorizer = load_pickle(files["vectorizer"])
     bow_matrix = load_pickle(files["matrix"])
     dataframe = load_pickle(files["dataframe"])
-
-    # Search bar for user input
-    search_query = st.text_input("Search for a name or description")
 
     if search_query:
         # Preprocess the search query
@@ -78,9 +75,9 @@ if category:
         for i, row in recommendations.iterrows():
             st.markdown(
                 f"""
-                <div class="recommendation-card">
-                    <h4>Name: {row['Name']}</h4>
-                    <p>Description: {row['Description']}</p>
+                <div style="background-color:white; border:2px solid #87ceeb; border-radius:8px; padding:15px; margin-bottom:15px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+                    <h4 style="margin:0; font-size:18px; font-weight:bold; color:#333333;">Name: {row['Name']}</h4>
+                    <p style="margin:5px 0 0; font-size:14px; color:#555555;">Description: {row['Description']}</p>
                 </div>
                 """,
                 unsafe_allow_html=True
