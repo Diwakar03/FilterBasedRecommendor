@@ -16,7 +16,7 @@ category_files = {
         "matrix": "Fdf1_bow_matrix.pkl",
         "dataframe": "Fdf1.pkl",
     },
-    "Hindi Show": {
+    "Hindi TV Shows": {
         "vectorizer": "Fdf2_bow_vectorizer.pkl",
         "matrix": "Fdf2_bow_matrix.pkl",
         "dataframe": "Fdf2.pkl",
@@ -41,18 +41,18 @@ category_files = {
 # Streamlit App Title
 st.markdown('<h1 style="color:white; text-align:left; font-size:36px; margin:20px 20px; font-weight:bold;">Filter-Based Recommendation System</h1>', unsafe_allow_html=True)
 
-# Category Selection with Inline CSS
+# Category Selection with Inline CSS (Grey color)
 category = st.selectbox(
     "Select a category", options=list(category_files.keys()), 
     index=0, key="category", 
     help="Select a category", 
     label_visibility="visible"
 )
-st.markdown('<style>div.stSelectbox > label { color: black !important; font-size: 16px !important; font-weight: bold !important; }</style>', unsafe_allow_html=True)
+st.markdown('<style>div.stSelectbox > label { color: grey !important; font-size: 16px !important; font-weight: bold !important; }</style>', unsafe_allow_html=True)
 
-# Search bar for user input with Inline CSS
+# Search bar for user input with Inline CSS (Grey color)
 search_query = st.text_input("Search for a name or description")
-st.markdown('<style>div.stTextInput > label { color: black !important; font-size: 16px !important; font-weight: bold !important; }</style>', unsafe_allow_html=True)
+st.markdown('<style>div.stTextInput > label { color: grey !important; font-size: 16px !important; font-weight: bold !important; }</style>', unsafe_allow_html=True)
 
 if category:
     # Load the corresponding files for the selected category
