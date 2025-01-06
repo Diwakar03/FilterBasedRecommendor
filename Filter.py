@@ -16,7 +16,7 @@ category_files = {
         "matrix": "Fdf1_bow_matrix.pkl",
         "dataframe": "Fdf1.pkl",
     },
-    "Hindi Show": {
+    "Hindi TV Shows": {
         "vectorizer": "Fdf2_bow_vectorizer.pkl",
         "matrix": "Fdf2_bow_matrix.pkl",
         "dataframe": "Fdf2.pkl",
